@@ -1,7 +1,17 @@
 MyData <- read.csv2(file = "data.csv", header = FALSE, sep = ";")
 
-# Two sample t-test, two sided, equal variances
+# Nastavení parametrů
+
+# Hladina významnosti
 alpha = 0.05;
+# Párová pozorování (párový test)
+pPairedSamples = TRUE;
+# Shodné rozptyly
+pVarEqual = TRUE;
+
+
+# Two sample t-test, two sided, equal variances
+
 x <- t.test(MyData$V1, MyData$V2, var.equal = TRUE)
 print(paste0("T-test p-value: ", x$p.value))
 print(paste0("T-test stat: ", x$statistic))
