@@ -11,11 +11,8 @@ TwoSamleTTest <- function(sample1, sample2, alternative, alpha, pairedSamples, e
   }
   print(sprintf("T-test stat: %.4f", x$statistic))
   print(sprintf("T-test p-value: %.4f", x$p.value))
-  if (x$p.value > alpha) {
-    print("Nezamítáme H0")
-  } else {
-    print("Zamítáme H0")
-  }
+  PrintResult(x$p.value, alpha)
+  x$p.value
 }
 
 
@@ -27,5 +24,8 @@ TwoSampleFTest <- function(sample1, sample2, alternative, alpha) {
   }
   print(sprintf("Variance test stat: %.4f", x$statistic))
   print(sprintf("Variance test p-value: %.4f", x$p.value))
+  PrintResult(x$p.value, alpha)
   x$p.value
 }
+
+

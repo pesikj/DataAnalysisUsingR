@@ -16,3 +16,4 @@ Regression <- function(x, y, alpha1, alpha2, xest) {
   print(sprintf("Regression - interval est. pro x = %.4f: y in <%.4f, %.4f>", xest, intervalpreditexpval[2], intervalpreditexpval[3]))
   #print(paste0("Regression - interval est. individualni hodnota y ", intervalpredittermval[2], " , ",  intervalpredittermval[3]))
 }
+
