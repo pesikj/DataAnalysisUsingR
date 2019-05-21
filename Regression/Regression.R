@@ -13,7 +13,7 @@ Regression <- function(x, y, alpha1, alpha2, xest) {
   print(sprintf("Regression - korelační koeficient: %.5f", sqrt(summary(fit)$r.squared)))
   print(sprintf("Regression - interval est. b_0: <%.5f, %.5f>", intervalestcoef[1,1], intervalestcoef[1,2]))
   print(sprintf("Regression - interval est. b_1: <%.5f, %.5f>", intervalestcoef[2,1], intervalestcoef[2,2]))
-  print(sprintf("Regression - interval est. pro x = %i: y in <%.5f, %.5f>", xest, intervalpreditexpval[2], intervalpreditexpval[3]))
-  print(sprintf("Regression - interval est. individuální hodnoty pro x = %i: y in <%.5f, %.5f>", intervalpredittermval[2], intervalpredittermval[3]))
+  print(sprintf("Regression - interval est. pro x = %.0f: y in <%.5f, %.5f>", xest, intervalpreditexpval[2], intervalpreditexpval[3]))
+  print(sprintf("Regression - interval est. individuální hodnoty pro x = %.0f: y in <%.5f, %.5f>", xest, intervalpredittermval[2], intervalpredittermval[3]))
 }
 

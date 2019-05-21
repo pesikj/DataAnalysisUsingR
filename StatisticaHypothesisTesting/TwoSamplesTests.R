@@ -16,11 +16,18 @@ TwoSamleTTest <- function(sample1, sample2, alternative, alpha, pairedSamples, e
     } else if (alternative == "less") {
       print(sprintf("T-test conf: (-nekonecno, %.5f>", qt(alpha,round(x$parameter))))
     }
+  } else if (pairedSamples == TRUE && equalVariance == TRUE) {
+    if (alternative == "two.sided") {
+      print(sprintf("T-test conf: (-nekonecno, %.5f> U <%.5f, nekonecno)", qt(alpha/2,x$parameter), qt(1-alpha/2,x$parameter)))
+    } else if (alternative == "greater") {
+      print(sprintf("T-test conf: <%.5f, nekonecno)", qt(1-alpha,x$parameter)))
+    } else if (alternative == "less") {
+      print(sprintf("T-test conf: (-nekonecno, %.5f>", qt(alpha,x$parameter)))
+    }
   }
   print(sprintf("T-test stat: %.5f", x$statistic))
   print(sprintf("T-test p-value: %.5f", x$p.value))
   PrintResult(x$p.value, alpha)
-  x$p.value
 }
 
 
@@ -33,7 +40,13 @@ TwoSampleFTest <- function(sample1, sample2, alternative, alpha) {
   print(sprintf("Variance test stat: %.5f", x$statistic))
   print(sprintf("Variance test p-value: %.5f", x$p.value))
   PrintResult(x$p.value, alpha)
-  x$p.value
 }
 
 
+IndependenceTest <- function(sample1, sample2, alpha) {
+  tbl = table(sample1, sample2)
+  x = chisq.test(tbl)
+  print(sprintf("Independence test stat: %.5f", x$statistic))
+  print(sprintf("Independence test p-value: %.5f", x$p.value))
+  PrintResult(x$p.value, alpha)
+}
